@@ -98,7 +98,7 @@ class Portfolio extends React.Component {
         return (
             <>
                {isLoading ? (
-                   <Loading />
+                   <Loading colo="black"/>
                    ) : (
                     <>
             <Header />
