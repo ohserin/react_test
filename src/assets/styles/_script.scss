@@ -1,0 +1,66 @@
+.script__cont {
+    background-color: var(--black);
+    padding-bottom: 40vh;
+}
+.script__inner {
+    color: var(--white);
+
+    .script {
+
+        .num {
+            margin: 2rem 0;
+
+            span {
+                border: 1px solid var(--light_bg);
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                display: inline-block;
+                border-radius: 50%;
+                text-align: center;
+                margin-right: 0.5em;
+                font-family: var(--subKor_font);
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: var(--white);
+                    color: var(--black)
+                }
+
+            }
+            span.active {
+                border-style: dashed;
+
+            }
+
+            
+        }
+
+        .desc {
+            font-family: var(--kor_font);
+
+            h2 {
+                
+                text-transform: capitalize;
+                margin-bottom: 0.5em;
+            }
+
+            p {
+               
+            }
+        }
+    }
+}
+
+.script__cont.light {
+    background-color: var(--light_bg);
+
+    .script__inner {
+        color: var(--black);
+
+        span {
+            border-color: var(--black);
+        }
+    }
+}

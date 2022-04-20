@@ -1,0 +1,39 @@
+// port__cont
+.port__cont {
+    background-color: var(--black);
+}
+.port__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.port__item {
+    flex: 1 1 30%;
+    margin: 1%;
+
+    .text {
+        padding: 1.4rem;
+        background-color: #151517;
+
+        h3 {
+            color: var(--white);
+            font-family: var(--main_font);
+            font-size: 2.6rem;
+            line-height: 1;
+            padding-top: 0.2em;
+            text-transform: uppercase;
+        }
+        p {
+            color: var(--white);
+            font-family: var(--sub_font);
+        }
+    }
+}
+
+//애니메이션
+
+.port__inner {
+    opacity: 0;
+    transform:translateY(50px);
+}

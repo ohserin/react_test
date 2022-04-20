@@ -1,0 +1,87 @@
+// container
+.container {
+    max-width: 1200px;
+    width: 98%;
+    margin: 0 auto;
+    //background: rgba(255,255,255,0.3);
+}
+
+// cont__title 
+.cont__title {
+    padding: 15vmax 1% 10vmax;
+    font-size: 5vmax;
+    font-family: var(--main_font);
+    text-transform: uppercase;
+    line-height: 0.85;
+    color: var(--white);
+    background-color: var(--black);
+
+    em {
+        display: block;
+    }
+}
+.cont__title.light {
+    background-color: var(--light_bg);
+    color: var(--black);
+}
+
+@media (max-width: 1200px){
+    .cont__title {
+        text-align: center;
+        padding-bottom: 10vw;
+    }
+}
+
+//타이틀 애니메이션
+.cont__title {
+    
+    strong {
+        display: block;
+        opacity: 0;
+        transform:translateY(50px);
+    }
+    em {
+        display: block;
+        opacity: 0;
+        transform:translateY(50px);
+    }
+    
+}
+
+
+
+// cont__contact
+.cont__contact {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--white);
+    text-transform: uppercase;
+    background-color: var(--black);
+
+    p {
+        font-size: 1.2rem;
+        font-family: var(--sub_font);
+        margin-bottom: 4vw;
+    }
+    h3 {
+        font-family: var(--main_font);
+        font-size: 9vw;
+        text-align: center;
+        line-height: 1;
+        margin-bottom: 1vw;
+
+        em {
+            display: block;
+        }
+    }
+    a {
+        font-size: 1rem;
+        font-family: var(--sub_font);
+        border: 1px solid var(--white);
+        border-radius: 50px;
+        padding: 1vw 4vw;
+    }
+}
