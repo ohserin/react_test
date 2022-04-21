@@ -3,12 +3,11 @@ import Header from "../layout/Header";
 import Contents from "../layout/Contents";
 import Footer from "../layout/Footer";
 import Title from "../layout/Title";
-import ReferCont from "../includes/ReferCont";
 import Contact from "../layout/Contact";
+import ReferCont from "../includes/ReferCont";
 import Loading from "../basics/Loading";
 import { gsap } from "gsap";
-
-
+import axios from "axios";
 // function Reference(){
 //     return (
 //         <>
@@ -22,84 +21,84 @@ import { gsap } from "gsap";
 //         </>
 //     )
 // }
-
 class Reference extends React.Component {
     state = {
         isLoading: true,
-        ports: [],
+        refers: [],
     }
-
     mainAnimation = () => {
         setTimeout(() => {
             gsap.to("#header", {
-                duration: 0.4,
+                duration: 0.8,
                 top: 0,
             });
             gsap.to("#footer", {
-                duration: 0.4,
+                duration: 0.8,
                 bottom: 0,
-                delay:0.2,
+                delay: 0.2,
             });
-            gsap.to(".cont__title strong",{
-                duration: 0.4,
-                x:0,
-                y:0,
-                opacity:1,
-                delay:1.2,
-                ease: "circ.out"
+            gsap.to(".cont__title strong", {
+                duration: 0.7,
+                y: 0,
+                opacity: 1,
+                delay: 1.0,
+                ease: "power4.out"
             });
-            gsap.to(".cont__title em",{
-                duration: 0.4,
-                x:0,
-                y:0,
-                opacity:1,
-                delay:1.4,
-                ease: "circ.out"
+            gsap.to(".cont__title em", {
+                duration: 0.7,
+                y: 0,
+                opacity: 1,
+                delay: 1.3,
+                ease: "power4.out"
             });
-        },10)
+            gsap.to(".refer__inner", {
+                duration: 0.7,
+                y: 0,
+                opacity: 1,
+                delay: 1.5,
+                ease: "power4.out"
+            });
+        }, 10)
+    }
+    getSite = async () => {
+        const {
+            data: {
+                data: {htmlRefer},
+            },
+        } = await axios.get("https://webstoryboy.github.io/react2022/src/assets/json/refer.json");
+
+        this.setState({refers:htmlRefer, isLoading: false})
+        this.mainAnimation();
     }
 
-    getPorts = async () => {
+    componentDidMount(){
         setTimeout(() => {
-         console.log("두번째 시작")
-         this.setState({isLoading: false});
-         this.mainAnimation();
-        }, 1600)
-    }
-
-    componentDidMount() {
-        setTimeout(() => {
-            console.log("첫번째 시작")
             document.getElementById("loading").classList.remove("loading__active");
-            document.querySelector("body").style.background = "#000";
-            this.getPorts();
-        }, 2000)
+            document.querySelector("body").style.background = "#F0EEEB";
+            this.getSite();
+        }, 2000);
     }
-
+    
     render(){
-        const {isLoading, ports} = this.state;
+        const {isLoading, refers} = this.state;
 
-        console.log(ports)
         return (
             <>
-               {isLoading ? (
-                    <Loading colo="black"/>
-                    ) : (
+                {isLoading ? (
+                    <Loading color="light" />
+                ) : (
                     <>
-                        <Header />
+                        <Header color="light" />
                         <Contents>
-                            <Title title={["Portfolio","Site"]} />
-                            <ReferCont port={ports} /> 
+                            <Title title={["Reference","book"]} color="light" />
+                            <ReferCont refer={refers} color="light" />
                             <Contact />
                         </Contents>
-                        <Footer />
+                        <Footer color="light" />
                     </>
-                    )}
-                </>
+                )}
+            </>
         )
     }
 }
-
-
-
 export default Reference;
