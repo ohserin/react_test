@@ -52,36 +52,36 @@ class ReferDetail extends React.Component {
                                 <div className="refer__table">
                                  <h3>{location.state.title}</h3>
                                  <p>{location.state.desc}</p>
-                                     <table className="table">
-                                         <thead>
-                                             <tbody>
-                                                 <tr>
-                                                     <th>특징</th>
-                                                     <th>설명</th>
-                                                 </tr>
-                                             </tbody>
-                                             <tr>
-                                                 <td>요소</td>
-                                                 <td>{location.state.element}</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>닫는 태그</td>
-                                                 <td>{location.state.tag}</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>버전</td>
-                                                 <td>{location.state.version}</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>시각적표현</td>
-                                                 <td>{location.state.view}</td>
-                                             </tr>
-                                             <tr>
-                                                 <td>사용성</td>
-                                                 <td>{location.state.use}</td>
-                                             </tr>
-                                         </thead>
-                                     </table>
+                                 <table className='table'>
+                                        <thead>
+                                            <tr>
+                                                <th>특징</th>
+                                                <th>설명</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>요소</th>
+                                                <td>{location.state.element}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>닫는태그</th>
+                                                <td>{location.state.tag}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>사용성</th>
+                                                <td>{location.state.use}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>버전</th>
+                                                <td>{location.state.version}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>시각적표현</th>
+                                                <td>{location.state.view}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                  </div>
                                 </div>
                             </div>

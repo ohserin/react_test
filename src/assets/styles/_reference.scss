@@ -1,6 +1,7 @@
 .refer__cont {
     background-color: var(--black);
-    min-height: 100vh;
+    padding-bottom: 300px;
+    font-family: var(--subKor_font);
 }
 .refer__inner {
     h2 {
@@ -8,93 +9,112 @@
         font-size: 2rem;
         margin-bottom: 1rem;
     }
+    // table {
+    //     border-top: 1px solid var(--light_border);
+    //     border-bottom: 2px solid var(--light_border);
+    //     color: var(--white);
+    //     // margin-bottom: 300px;
+    //     td {
+    //         border-top: 1px solid var(--light_border);
+    //         padding: 1.4rem 1rem;
+    //         font-family: var(--subKor_font);
+    //         font-weight: 300;
+    //     }
+    // }
 }
-.refer__list {
-    border-top: 2px solid var(--light_bg);
-    border-bottom: 1px solid var(--light_bg);
-    a {
-        display: block;
-        color: var(--white);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid var(--light_bg);
-        padding: 1.3rem 0;
-        transition: all 0.3s;
-        font-family: var(--subKor_font);
-        &:hover {
-            background: var(--light_bg);
-            color: var(--black);
-        }
-        span {
-            display: inline-block;
-        }
-        span:nth-child(1) {
-            width: 6%;
-            text-align: center;
-        }
-        span:nth-child(2) {
-            width: 20%;
-        }
-        span:nth-child(3) {
-            width: 64%;
-        }
-        span:nth-child(4) {
-            width: 10%;
-            text-align: center;
-        }
-    }
-}
-
 .refer__table {
     margin-top: 200px;
     color: var(--white);
-    font-family: var( --subkor_font);
-    border: 1px solid var(--light_bg);
-    margin-top: 0.5em;
+    font-family: var(--subKor_font);
 
- 
     h3 {
         font-size: 3rem;
     }
     p {
         background-color: var(--light_bg);
         color: var(--black);
-        padding: 1.4em;
+        padding: 1.4rem;
     }
+    ul li ul li {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    ul li h4 {
+        padding: 60px 0 10px 0;
+        font-size: 25px;
+    }
+}
+.table {
+    color: var(--white);
+    font-family: var(--subKor_font);
+    border: 1px solid var(--light_bg);
+    margin-top: 0.5em;
 
-    .table {
+    th,td {
+        padding: 1em;
+        font-weight: normal;
+        border-bottom: 1px solid var(--light_bg);
+        border-left: 1px solid var(--light_bg);
+    }
+}
+
+
+.refer__list {
+    border-top: 1px solid var(--light_bg);
+    border-bottom: 1px solid var(--light_bg);
+    a {
         color: var(--white);
-        font-family: var( --subkor_font);
-        border: 1px solid var(--light_bg);
-        margin-top: 0.5em;
 
-        th, td {
-            font-weight: normal;
-            padding: 1em;
-            border-bottom: 1px solid var(--light_bg);
-            border-left: 1px solid var(--light_bg);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--light_bg);
+        padding: 1rem 0;
+        transition: all 0.3s;
+        font-family: var(--subKor_font);
+
+        span {
+            display: inline-block;
+        }
+        span:nth-child(1){
+            width: 6%;
+            text-align: center;
+        }
+        span:nth-child(2){
+            width: 20%;
+        }
+        span:nth-child(3){
+            width: 64%;
+        }
+        span:nth-child(4){
+            width: 10%;
+            text-align: center;
+        }
+        &:hover {
+            background: var(--light_bg);
+            color: var(--black);
         }
     }
 }
-
-.refer__cont.light {
-    background-color: var(--light_bg);
-    .refer__inner {
-        h2 {
-            color: var(--black);
-        }
-        table {
-            border-color : var(--black);
-            color: var(--black);
-            td {
-                border-color: var(--black);
-            }
-        }
-    }
-}
-//애니메이션
+// 애니메이션
 // .refer__inner {
+//     display: block;
 //     opacity: 0;
-//     transform: translateY(50px);
+//     transition: all 1s;
+//     // transform: translateY(200px);
 // }
+@media (max-width:1000px) {
+    td {
+        font-size: 14px;
+    }
+}
+@media (max-width:600px) {
+    td {
+        font-size: 10px;
+    }
+    .refer__inner h2 {
+        font-size: 18px;
+    }
+}
