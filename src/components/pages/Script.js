@@ -7,11 +7,14 @@ import Title from "../layout/Title";
 import Contact from "../layout/Contact";
 import ScriptCont from "../includes/ScriptCont";
 import Loading from "../basics/Loading";
+
 import { gsap } from "gsap";
+import axios from "axios";
 
 class Script extends React.Component {
     state = {
         isLoading: true,
+        ports: []
     }
 
     mainAnimation = () => {
@@ -49,24 +52,23 @@ class Script extends React.Component {
         }, 10)
     }
     
-    getSite = () => {
-        setTimeout(() => {
-            console.log("두번째 시작")
-            this.setState({isLoading: false});
-            this.mainAnimation();
-        }, 1600)
+    getScripts = async () => {
+        const lists = await axios.get("https://api.themoviedb.org/3/search/movie?api_key=a01a242dbe03135687e384cefe4bae93&query=bts");
+        console.log(lists)
+        this.setState({lists, isLoading: false});
+        this.mainAnimation();
     }
 
     componentDidMount(){
         setTimeout(() => {
             document.getElementById("loading").classList.remove("loading__active");
             document.querySelector("body").style.background = "#F0EEEB";
-            this.getSite();
+            this.getScripts();
         }, 2000);
     }
 
     render(){
-        const {isLoading} = this.state;
+        const {isLoading, lists} = this.state;
 
         return (
             <>
@@ -78,7 +80,7 @@ class Script extends React.Component {
                         <Header color="light" />
                         <Contents>
                             <Title title={["Script","book"]} color="light" />
-                            <ScriptCont color="light" />
+                            <ScriptCont color = "light" lists={lists}/>
                             <Contact />
                         </Contents>
                         <Footer color="light" />

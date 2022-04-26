@@ -82,7 +82,32 @@ class ReferDetail extends React.Component {
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <ul>
+                                        <li>
+                                            <h4>정의 (Definition)</h4>
+                                            <ul>
+                                                <p>
+                                                {location.state.Definition.map((refer) => (
+                                                    <li key={refer}>{refer}</li>
+                                                ))}
+                                                </p>
+                                                {/* <p><li>{location.state.Definition}</li></p> */}
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <h4>접근성 (Accessibility)</h4>
+                                            <p>{location.state.Accessibility}</p>
+                                        </li>
+                                        <li>
+                                            <h4>참고사이트 (Reference)</h4>
+                                            <ul>
+                                                <li><a href={location.state.mdn}>MDN</a></li>
+                                                <li><a href={location.state.w3c}>W3C</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                  </div>
+                                 
                                 </div>
                             </div>
                     </section>
