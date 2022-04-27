@@ -1,6 +1,6 @@
 import React, {useRef} from 'react'  //rfec
 
-function YoutubeSearch({ onSearch }) {
+function ScriptSearch({ onSearch }) {
     const inputRef = useRef()
 
     const handelSearch = () => {
@@ -23,7 +23,7 @@ function YoutubeSearch({ onSearch }) {
  
  
     return (
-    <div className='youtube__search container'>
+    <div className='script__search container'>
         <h2>검색하기</h2>
         <input
         ref={inputRef}
@@ -38,4 +38,4 @@ function YoutubeSearch({ onSearch }) {
   )
 }
 
-export default YoutubeSearch
+export default ScriptSearch

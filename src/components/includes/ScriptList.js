@@ -1,22 +1,13 @@
-import React from 'react'
-
-
-function ScriptItem(props) {
-    return (
-        <li>
-            <img src={`https://image.tmdb.org/t/p/w500/${props.video.poster_path}`} />
-            <p className='title'>{props.video.title}</p>
-        </li>
-    )
-}
+import React from 'react';
+import ScriptItem from './ScriptItem';
 
 function ScriptList(props) {
-    //console.log(props.lists.data.items)
+    // console.log(props)
   return (
-    <div className='youtube__list'>
+    <div className='script__list'>
         <ul>
-            {props.items.data.results.map((list, index) => (
-                <ScriptItem key={index} video={list} />
+            {props.videos.map((video, index) => (
+                <ScriptItem key={index} video={video} />
             ))}
         </ul>
     </div>

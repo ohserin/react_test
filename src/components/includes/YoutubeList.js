@@ -1,22 +1,14 @@
-import React from 'react'
-
-function YoutubeItem(props) {
-    return (
-        <li>
-            <img src={props.video.snippet.thumbnails.medium.url} alt={props.video.snippet.title} />
-            <p className='title'>{props.video.snippet.title}</p>
-        </li>
-    )
-}
+import React from 'react';
+import YoutubeItem from './YoutubeItem';
 
 function YoutubeList(props) {
-    //console.log(props.lists.data.items)
+    console.log(props)
   return (
     <div className='youtube__list'>
         <ul>
-            {props.items.data.items.map((list, index) => (
-                <YoutubeItem key={index} video={list} />
-            ))}
+        {props.videos.map((video, index) => (
+            <YoutubeItem key={index} video={video} />
+        ))}
         </ul>
     </div>
   )

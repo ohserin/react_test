@@ -1,23 +1,18 @@
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../layout/Header";
 import Contents from "../layout/Contents";
 import Footer from "../layout/Footer";
 import Title from "../layout/Title";
 import Contact from "../layout/Contact";
-import ScriptCont from "../includes/ScriptCont";
+import ScriptList from "../includes/ScriptList";
+import ScriptSearch from "../includes/ScriptSearch";
+
 import Loading from "../basics/Loading";
-
 import { gsap } from "gsap";
-import axios from "axios";
+import YoutubeSearch from "../includes/YoutubeSearch";
 
-class Script extends React.Component {
-    state = {
-        isLoading: true,
-        ports: []
-    }
-
-    mainAnimation = () => {
+   const mainAnimation = () => {
+    document.getElementById("loading").classList.remove("loading__active");
         setTimeout(() => {
             gsap.to("#header", {
                 duration: 0.8, 
@@ -51,47 +46,61 @@ class Script extends React.Component {
             });
         }, 10)
     }
-    
-    getScripts = async () => {
-        const lists = await axios.get("https://api.themoviedb.org/3/search/movie?api_key=a01a242dbe03135687e384cefe4bae93&query=bts");
-        console.log(lists)
-        this.setState({lists, isLoading: false});
-        this.mainAnimation();
-    }
 
-    componentDidMount(){
-        setTimeout(() => {
-            document.getElementById("loading").classList.remove("loading__active");
-            document.querySelector("body").style.background = "#F0EEEB";
-            this.getScripts();
-        }, 2000);
-    }
+    function Script(){
+        const [videos, setVideos] = useState([]);
 
-    render(){
-        const {isLoading, lists} = this.state;
+        const search = (query)=> {
+            var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+              };
+              
+              fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE}&query=${query}`, requestOptions)
+                .then(response => response.json())
+                .then(result => setVideos(result.items))
+                .catch(error => console.log('error', error));
+        }
+
+        useEffect(() => {
+            var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+              };
+              
+              fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE}&query=iu`, requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result)
+                    setVideos(result.results);
+                    mainAnimation();
+                })
+                .catch(error => console.log('error', error));
+        }, []);
+        
 
         return (
+
             <>
-                {isLoading ? (
-                    <Loading color="light" />
-                ) : (
-                    <>
-                       <>
+                    {/* <Loading color="light" /> */}
                         <Header color="light" />
                         <Contents>
                             <Title title={["Script","book"]} color="light" />
-                            <ScriptCont color = "light" lists={lists}/>
+                            <section className="script__cont">
+                            <div className="container">
+                                <div className="script__inner">
+                                    <ScriptSearch onSearch={search} />
+                                    <ScriptList videos={videos} />
+                                    </div>
+                                    </div>
+                                    </section>
                             <Contact />
                         </Contents>
                         <Footer color="light" />
                         </>
-
-                    </>
-                )}
-            </>
         )
     }
-}
+
 
 
 
