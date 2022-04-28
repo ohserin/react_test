@@ -68,7 +68,7 @@ import YoutubeSearch from "../includes/YoutubeSearch";
                 redirect: 'follow'
               };
               
-              fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE}&query=iu`, requestOptions)
+              fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE}&query=bts`, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     console.log(result)
@@ -83,9 +83,9 @@ import YoutubeSearch from "../includes/YoutubeSearch";
 
             <>
                     {/* <Loading color="light" /> */}
-                        <Header color="light" />
+                        <Header />
                         <Contents>
-                            <Title title={["Script","book"]} color="light" />
+                            <Title title={["Script","book"]}/>
                             <section className="script__cont">
                             <div className="container">
                                 <div className="script__inner">
@@ -96,7 +96,7 @@ import YoutubeSearch from "../includes/YoutubeSearch";
                                     </section>
                             <Contact />
                         </Contents>
-                        <Footer color="light" />
+                        <Footer />
                         </>
         )
     }
