@@ -12,7 +12,7 @@ import { gsap } from "gsap";
 import YoutubeSearch from "../includes/YoutubeSearch";
 
    const mainAnimation = () => {
-    document.getElementById("loading").classList.remove("loading__active");
+    // document.getElementById("loading").classList.remove("loading__active");
         setTimeout(() => {
             gsap.to("#header", {
                 duration: 0.8, 
@@ -58,7 +58,7 @@ import YoutubeSearch from "../includes/YoutubeSearch";
               
               fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE}&query=${query}`, requestOptions)
                 .then(response => response.json())
-                .then(result => setVideos(result.items))
+                .then(result => setVideos(result.results))
                 .catch(error => console.log('error', error));
         }
 
@@ -85,7 +85,7 @@ import YoutubeSearch from "../includes/YoutubeSearch";
                     {/* <Loading color="light" /> */}
                         <Header />
                         <Contents>
-                            <Title title={["Script","book"]}/>
+                            <Title title={["Movie","book"]}/>
                             <section className="script__cont">
                             <div className="container">
                                 <div className="script__inner">
@@ -100,15 +100,6 @@ import YoutubeSearch from "../includes/YoutubeSearch";
                         </>
         )
     }
-
-
-
-
-
-
-
-
-  
 
 
 export default Script;

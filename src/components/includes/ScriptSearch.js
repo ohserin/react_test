@@ -3,23 +3,20 @@ import React, {useRef} from 'react'  //rfec
 function ScriptSearch({ onSearch }) {
     const inputRef = useRef()
 
-    const handelSearch = () => {
+    const handleSearch = () => {
         const value = inputRef.current.value;
-        onSearch(value)
-      
-    }
-
-
-    const onClick = () => {
-        handelSearch();
+        onSearch(value);
     }
 
     const onKeyPress = (event) => {
         if(event.key === "Enter"){
-            handelSearch();
+            handleSearch();
         }
-     }
- 
+    }
+
+    const onClick = () => {
+        handleSearch();
+    }
  
  
     return (
@@ -29,11 +26,10 @@ function ScriptSearch({ onSearch }) {
         ref={inputRef}
         type="search"
          placeholder='검색하세요!'
-        onKeyPress={onKeyPress} 
+        onKeyPress={onKeyPress}
         />
-
-        <button type='submit' 
-        onClick={onClick}>검색</button>
+    <button type='submit'
+     onClick={onClick}>검색</button>
     </div>
   )
 }

@@ -6,8 +6,8 @@ function ScriptList(props) {
   return (
     <div className='script__list'>
         <ul>
-            {props.videos.map((video, index) => (
-                <ScriptItem key={index} video={video} />
+          {props.videos.map((videos, index) => (
+                <ScriptItem key={index} video={videos} />
             ))}
         </ul>
     </div>
